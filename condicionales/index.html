@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>vue js</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container-fluid" id="app">
+        <div class="row"> 
+            <div class="col-6 p-3 m-1 bg-primary text-white">
+            <!--if-else para mostrar algo-->
+              <div v-if="Math.random() > 0.5">
+                Ahora me ves
+              </div>
+              <div v-else>
+                Ahora no
+              </div>
+            </div>
+            <div class="col p-3 m-1 bg-primary text-white">
+              <!--else-if para mostrar algo-->
+              <div v-if="type === 'A'">
+                A
+              </div>
+              <div v-else-if="type === 'B'">
+                B
+              </div>
+              <div v-else-if="type === 'C'">
+                C
+              </div>
+              <div v-else>
+                Si no es A, B o C
+              </div>
+            </div>
+            <div class="col-6 p-3 m-1 bg-primary text-white">
+              <!--se cambia para reutilizar los componentes-->
+              <template v-if="loginType === 'username'">
+                <label>Nombre de Usuario</label>
+                <input class="form-control" placeholder="Ingrese su nombre de usuario">
+              </template>
+              <template v-else>
+                <label>Email</label>
+                <input class="form-control" placeholder="Ingrese su email">
+              </template>
+              <button class="btn btn-success" @click="alternar()">cambiar</button>
+            </div>
+         </div>
+        
+     
+     </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>

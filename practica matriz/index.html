@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>vue js</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container-fluid" id="app">
+        <div class="row"> 
+            <div class="col-12 p-3 m-1 bg-light text-white">
+                <!--iterar una matriz para dibujar una tabla el boron ocupa la ultima columna del array, por lo que no debe usarse en js-->
+                <table class="table table-bordered">
+                    <tr v-for="(fila,nFila) in matriz1">
+                        <td v-for="(columna,nColumna) in fila">
+                            <button v-if="nColumna===ultimaColumna(nFila)" @click='agregarColumna(nFila)' class="btn btn-success">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </button>
+                            <div v-else>
+                                <input type="text" class="form-control" v-model="matriz1[nFila][nColumna]">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <button class="btn btn-success" @click="agregarFila">agregar fila</button>
+            </div>
+
+            <div class="col-12 p-3 m-1 bg-light text-white">
+                <!--iterar una matriz para dibujar una tabla el boron ocupa la ultima columna del array, por lo que no debe usarse en js-->
+                <table class="table table-bordered">
+                    <tr v-for="(fila,nFila) in asientoOrdenado">
+                        <td v-for="(asiento, nColumna) in fila" :key="asiento.id">
+                            {{asiento.fila}}{{asiento.columna}} <input type="text" class="form-control" :value='asiento.butaca'>
+                        </td>
+                    </tr>
+                </table>
+                <!-- <button class="btn btn-success" @click="">agregar fila</button> -->
+            </div>
+       </div>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>

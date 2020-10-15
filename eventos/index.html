@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>vue js</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container-fluid" id="app">
+        <div class="row"> 
+            <div class="col-6 p-3 m-1 bg-primary text-white">
+            <!--evento click con logica dentro de la accion-->
+              <button class="btn btn-success" @click="contador++">aumentar</button>
+              <h3> {{contador}} </h3>
+            </div>
+            <div class="col p-3 m-1 bg-primary text-white">
+            <!--evento click con logica en un metodo-->
+                <button class="btn btn-success" @click="saludar">saludar</button>
+            <!--evento click pero nmandando un parametro mensaje-->
+             <button class="btn btn-success" @click="saludarMensaje('hola marlon')">saludar</button>
+            <!--evento click mandando un parametr y tambien el $event-->
+            <button class="btn btn-success" @click="saludarMensajeEvento('este es el mensaje',$event)">saludar</button>
+            </div>
+            <div class="col-6 p-3 m-1 bg-primary text-white">
+              <!--evento click con logica dentro de la accion-->
+              <!-- Se detendrá la propagación del evento click. -->
+              <a class="btn btn-success" @click.stop="saludar"> saluda</a>
+
+              <!-- El evento de enviar ya no volverá a cargar la página. -->
+              <form v-on:submit.prevent="onSubmit"></form>
+
+              <!-- Los modificadores pueden encadenarse -->
+              <a class="btn btn-success" v-on:click.stop.prevent="saludar">saludar</a>
+
+              <!-- solo el modificador -->
+              <form v-on:submit.prevent></form>
+
+              <!-- utilizar el modo de captura al agregar el detector de eventos -->
+              <!-- es decir, un evento dirigido a un elemento interno se maneja aquí antes de ser manejado por ese elemento -->
+              <div class="btn btn-success" v-on:click.capture="saludar">hola</div>
+
+              <!-- solo activa el controlador si event.target es el elemento en sí -->
+              <!-- es decir, no de un elemento hijo -->
+              <div class="btn btn-success" v-on:click.self="saludar">hola</div>
+              <!-- El evento de clic se activará como máximo una vez. -->
+              <a class="btn btn-danger" @click.once="saludar">solo funcionare una vez</a>
+            </div>
+
+            <div class="col p-3 m-1 bg-primary text-white">
+              <!--usando los keycodes en un input-->
+              <input type="text" class="form-control" 
+              @keyup.enter="teclaPresionada='enter'"
+              @keyup.tab="teclaPresionada='tab'"
+              @keyup.delete ="teclaPresionada='delete'"
+              @keyup.esc ="teclaPresionada='esc'"
+              @keyup.space="teclaPresionada='space'"
+              @keyup.up="teclaPresionada='up'"
+              @keyup.right="teclaPresionada='right'"
+              @keyup.down="teclaPresionada='down'"
+              @keyup.left="teclaPresionada='left'"
+              @keyup.65="teclaPresionada='codigo 65=letra a'">
+              <p> {{teclaPresionada}} </p>
+            </div>
+     </div>
+     </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>vue js</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container-fluid" id="app">
+        <div class="row"> 
+            <div class="col-6 p-3 m-1 bg-primary text-white">
+              <!--binding basico-->
+              <input type="text" class="form-control" v-model="mensaje1" placeholder="editame loco">
+              el mensaje es: {{mensaje1}}
+              <br><br>  
+              <!--para un textarea, con el style del p se logra que salte la linea-->
+              <textarea v-model="mensaje2" placeholder="agregar múltiples líneas"></textarea><br>
+              <span>El mensaje multilínea es:</span>
+              <p style="white-space: pre-line;">{{ mensaje2 }}</p>
+              <br>
+            </div>
+            <div class="col p-3 m-1 bg-primary text-white">
+            <!--checkbox individual-->
+            <input type="checkbox" id="check1" v-model="checked">
+            <label for="check1">
+              {{checked}}
+            </label> <br><br>
+
+            <!--checkbox group no vinculados, el value viaja a un arrealo automaticamente-->
+            <input type="checkbox" id="marlon" value="marlonn" v-model="nombresSeleccionados">
+            <label for="marlon"></label> 
+            <input type="checkbox" id="wilfredo" value="wilfredoo" v-model="nombresSeleccionados">
+            <label for="wilfredo"></label> 
+            <input type="checkbox" id="guerra" value="guerraa" v-model="nombresSeleccionados">
+            <label for="wilfredo"></label> 
+            <span>Checked names: {{ nombresSeleccionados  }}</span> <br><br>
+
+            <!--con radio buttons-->
+            <input type="radio" id="uno" value="Uno" v-model="seleccionado">
+            <label for="uno">Uno</label>
+            <br>
+            <input type="radio" id="Dos" value="Dos" v-model="seleccionado">
+            <label for="Dos">Dos</label>
+            <br>
+            <span>Eligió: {{ seleccionado }}</span> <br><br>
+
+            <!--con un select individual-->
+            <select v-model="seleccionado">
+              <option disabled value="">Seleccione un elemento</option>
+              <option>Uno</option>
+              <option>Dos</option>
+              <option>Uno</option>
+            </select>
+            <span>Seleccionado: {{ seleccionado }}</span><br><br>
+
+            <!--con un select multiple-->
+            <select v-model="nombresSeleccionados" multiple>
+              <option>marlonn</option>
+              <option>wilfredoo</option>
+              <option>guerraa</option>
+            </select>
+            <br>
+            <span>Seleccionados: {{ nombresSeleccionados }}</span>
+           </div>
+
+           <div class="col-6 p-3 m-1 bg-primary text-white">
+             <!--renderizado mezclado con vmodel-->
+             <select v-model="selected">
+              <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+              </option>
+            </select>
+            <span>Seleccionado: {{ selected }}</span>
+           </div>
+          </div>
+        
+     
+     </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>vue js</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      
+      <div class="container-fluid" id="app">
+        <div class="row">
+            <div class="col-6 p-3 m-1 bg-primary text-white">
+                <!--enlazar mensaje con DOM-->
+                <h3 class="h3">
+                    {{mensaje}}
+                </h3>
+            </div> 
+            <div class="col p-3 m-1 bg-primary text-white">
+                <!--para enlazar el titulo con mensaje2-->
+                 <h4 v-bind:title="mensaje2">
+                 El titulo de este mensaje esta enlazado con mensaje2
+                 </h4>
+            </div>
+            <div class="col-6 p-3 m-1 bg-primary text-white">
+                <!--condicionales-->
+                <span v-if="condicion">
+                    esto se muestra solo si condicion es true
+                </span>
+            </div>
+            <div class="col p-3 m-1 bg-primary text-white">
+                <!--el bucle para for de un arrauy de objetos-->  
+                <ol>
+                    <li v-for="(elemento, index) in elementos" :key="index">
+                        {{elemento.text}} {{'con indice: ' + index}}
+                    </li>
+                </ol> 
+            </div>
+            <div class="col-6 p-3 m-1 bg-primary text-white">
+                <!--manejando interacciones o eventosm en este caso el click tambien funciona @click-->
+                <p>
+                    {{mensaje}}
+                </p>
+                <button type="button" v-on:click="revertirTexto" class="btn btn-success"> revertir mensaje</button>
+            </div>
+            <div class="col p-3 m-1 bg-primary text-white">
+                <!--usando v-model para vincular-->
+                <input type="text" v-model="texto" class="form-control" >
+                <p >
+                    {{texto}}
+                </p>
+            </div>
+            <div class="col-6 p-3 m-1 bg-primary text-white">
+                <!--mi primer componente-->
+                <ol>
+                    <mi-componente mipropiedad="200"></mi-componente>
+                </ol>
+                <ol>
+                    <!--en el siguiente se itera el array de objetos listaGrosera, y se manda cada uno como mipripiedad con v-bind-->
+                    <mi-componente v-for="(elemento, index) in listaGrosera" v-bind:mipropiedad="elemento" v-bind:key="elemento.id"></mi-componente>
+                </ol>
+            </div>
+            <!--revertir una palabra usando una propiedad coputada-->
+            <div class="col p-3 m-1 bg-primary text-white">
+                <p>Mensaje original: "{{ mensaje3 }}"</p>
+                <p>Mensaje invertido computado: "{{ CrevertirTexto }}"</p>
+             <!--revertir una palabra usando un metodo-->
+                <p>Mensaje Invertido con metodos: "{{ revertirTextoReturn() }}"</p>
+             <!--usando gettet y setter de computer -->
+             <p>Nombre: "{{nombre}}"</p>
+             <p>Apelido : "{{apellido}}"</p>
+             <p>Nombre completo: "{{nombreCompleto}}"</p>
+            </div>
+         </div>
+     </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
