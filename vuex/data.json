@@ -1,0 +1,36 @@
+[{
+    "activo": true,
+    "apellido": "Nolan",
+    "idDirector": 1,
+    "nombre": "Christopher"
+}, {
+    "activo": true,
+    "apellido": "Spielberg",
+    "idDirector": 2,
+    "nombre": "Steven"
+}, {
+    "activo": true,
+    "apellido": "Scorsese",
+    "idDirector": 3,
+    "nombre": "Martin"
+}, {
+    "activo": true,
+    "apellido": "Tarantino",
+    "idDirector": 4,
+    "nombre": "Quentin"
+}, {
+    "activo": true,
+    "apellido": "del Toro",
+    "idDirector": 5,
+    "nombre": "Guillermo"
+}, {
+    "activo": true,
+    "apellido": "Fincher",
+    "idDirector": 6,
+    "nombre": "David"
+}, {
+    "activo": false,
+    "apellido": "guerrra",
+    "idDirector": 7,
+    "nombre": "marlon"
+}]
